@@ -1,0 +1,13 @@
+li a {
+    color: white;
+   
+   font:  italic small-caps bold 24px/60px Georgia, serif;
+    font-weight: bold;
+}
+body {
+    background: white url("images/background.gif") no-repeat;
+    height: 98%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+<link rel="stylesheet" href="mystyle.css">
+ a {
+    color: white;
+   
+   font:  italic small-caps bold 24px/60px Georgia, serif;
+    font-weight: bold;
+}
+body {
+    background: white url("image/background.gif") no-repeat;
+    height: 98%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} 
+</style>
+</head>
+
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+{% endfor %}
+<br>
+<input type="submit" value="Vote">
+</form>
+</html>
+
